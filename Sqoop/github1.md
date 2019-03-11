@@ -234,6 +234,27 @@ Note: Recompile with -Xlint:deprecation for details.
 in parquet format and compressed using gzip. From the terminal, display some of the records
 that you just imported. Take a screenshot and save it as CA_only.
 
+
+## 데이터 값 확인
+```
+sqoop eval \
+--connect jdbc:mysql://localhost/loudacre \
+--username training --password training \
+--query "select state from accounts group by state"
+```
+19/03/10 22:09:58 INFO sqoop.Sqoop: Running Sqoop version: 1.4.6-cdh5.7.0
+19/03/10 22:09:59 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+19/03/10 22:09:59 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+------------------------
+| state                | 
+------------------------
+| AZ                   | 
+| CA                   | 
+| NV                   | 
+| OR                   | 
+------------------------
+
+
 ## import state=California인 경우, 단 parquet format, gzip compression
 ```
 sqoop import \
@@ -320,6 +341,7 @@ Note: Recompile with -Xlint:deprecation for details.
 		Bytes Written=0
 19/03/10 22:11:30 INFO mapreduce.ImportJobBase: Transferred 4.0172 MB in 51.365 seconds (80.0867 KB/sec)
 19/03/10 22:11:30 INFO mapreduce.ImportJobBase: Retrieved 92416 records.
+
 
 ## 결과 확인
 ```
