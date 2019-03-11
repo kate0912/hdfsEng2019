@@ -319,3 +319,7 @@ Note: Recompile with -Xlint:deprecation for details.
 
 
 ## 결과 확인
+sqoop eval \
+--connect jdbc:mysql://localhost/loudacre \
+--username training --password training \
+--query "select "
