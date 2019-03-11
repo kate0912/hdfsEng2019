@@ -265,6 +265,7 @@ sqoop import \
 --as-parquetfile
 ```
 - 참고사항: default compression은 gzip
+
 19/03/10 22:10:31 INFO sqoop.Sqoop: Running Sqoop version: 1.4.6-cdh5.7.0
 19/03/10 22:10:31 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
 19/03/10 22:10:32 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
