@@ -228,6 +228,7 @@ Note: Recompile with -Xlint:deprecation for details.
 19/03/10 21:59:24 INFO mapreduce.ImportJobBase: Transferred 1.2446 MB in 47.9265 seconds (26.5919 KB/sec)
 19/03/10 21:59:24 INFO mapreduce.ImportJobBase: Retrieved 129761 records.
 
+![2_screenshot](./user_compressed.PNG)
 
 3. Finally save in /loudacre/accounts/CA only clients whose state is from California. Save the file
 in parquet format and compressed using gzip. From the terminal, display some of the records
@@ -405,3 +406,5 @@ zipcode = 94872
 phone_number = 5107754354
 created = 1395174587000
 modified = 1395174587000
+
+![3_screenshot](./CA_only.PNG)
