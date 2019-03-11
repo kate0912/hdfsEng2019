@@ -34,9 +34,9 @@ sqoop eval \
 19/03/10 21:39:37 INFO sqoop.Sqoop: Running Sqoop version: 1.4.6-cdh5.7.0
 19/03/10 21:39:37 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
 19/03/10 21:39:38 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
----------------------------------------------------------------------------------------------------------
+
 | Field                | Type                 | Null | Key | Default              | Extra                | 
----------------------------------------------------------------------------------------------------------
+
 | acct_num             | int(11)              | NO  | PRI | (null)               |                      | 
 | acct_create_dt       | datetime             | NO  |     | (null)               |                      | 
 | acct_close_dt        | datetime             | YES |     | (null)               |                      | 
