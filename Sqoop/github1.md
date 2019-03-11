@@ -241,85 +241,147 @@ sqoop import \
 --username training --password training \
 --table accounts \
 --target-dir /loudacre/accounts/CA \
---where "state='California'" \
+--where "state='CA'" \
 --as-parquetfile
 ```
 - 참고사항: default compression은 gzip
-19/03/10 22:02:42 INFO sqoop.Sqoop: Running Sqoop version: 1.4.6-cdh5.7.0
-19/03/10 22:02:42 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
-19/03/10 22:02:43 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
-19/03/10 22:02:43 INFO tool.CodeGenTool: Beginning code generation
-19/03/10 22:02:43 INFO tool.CodeGenTool: Will generate java class as codegen_accounts
-19/03/10 22:02:43 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `accounts` AS t LIMIT 1
-19/03/10 22:02:43 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `accounts` AS t LIMIT 1
-19/03/10 22:02:43 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /usr/lib/hadoop-mapreduce
-Note: /tmp/sqoop-training/compile/55bf205c50259715369df6dc7ccb942b/codegen_accounts.java uses or overrides a deprecated API.
+19/03/10 22:10:31 INFO sqoop.Sqoop: Running Sqoop version: 1.4.6-cdh5.7.0
+19/03/10 22:10:31 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+19/03/10 22:10:32 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+19/03/10 22:10:32 INFO tool.CodeGenTool: Beginning code generation
+19/03/10 22:10:32 INFO tool.CodeGenTool: Will generate java class as codegen_accounts
+19/03/10 22:10:32 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `accounts` AS t LIMIT 1
+19/03/10 22:10:32 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `accounts` AS t LIMIT 1
+19/03/10 22:10:32 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /usr/lib/hadoop-mapreduce
+Note: /tmp/sqoop-training/compile/72e7fa11914ceeba9f866f42429211d1/codegen_accounts.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
-19/03/10 22:02:46 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-training/compile/55bf205c50259715369df6dc7ccb942b/codegen_accounts.jar
-19/03/10 22:02:46 WARN manager.MySQLManager: It looks like you are importing from mysql.
-19/03/10 22:02:46 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
-19/03/10 22:02:46 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
-19/03/10 22:02:46 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
-19/03/10 22:02:46 INFO mapreduce.ImportJobBase: Beginning import of accounts
-19/03/10 22:02:46 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
-19/03/10 22:02:46 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
-19/03/10 22:02:47 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `accounts` AS t LIMIT 1
-19/03/10 22:02:47 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `accounts` AS t LIMIT 1
-19/03/10 22:02:49 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
-19/03/10 22:02:49 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
-19/03/10 22:02:51 INFO db.DBInputFormat: Using read commited transaction isolation
-19/03/10 22:02:51 INFO db.DataDrivenDBInputFormat: BoundingValsQuery: SELECT MIN(`acct_num`), MAX(`acct_num`) FROM `accounts` WHERE ( state='California' )
-19/03/10 22:02:51 INFO mapreduce.JobSubmitter: number of splits:1
-19/03/10 22:02:51 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1552277057261_0008
-19/03/10 22:02:52 INFO impl.YarnClientImpl: Submitted application application_1552277057261_0008
-19/03/10 22:02:52 INFO mapreduce.Job: The url to track the job: http://localhost:8088/proxy/application_1552277057261_0008/
-19/03/10 22:02:52 INFO mapreduce.Job: Running job: job_1552277057261_0008
-19/03/10 22:03:00 INFO mapreduce.Job: Job job_1552277057261_0008 running in uber mode : false
-19/03/10 22:03:00 INFO mapreduce.Job:  map 0% reduce 0%
-19/03/10 22:03:09 INFO mapreduce.Job:  map 100% reduce 0%
-19/03/10 22:03:09 INFO mapreduce.Job: Job job_1552277057261_0008 completed successfully
-19/03/10 22:03:10 INFO mapreduce.Job: Counters: 30
+19/03/10 22:10:36 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-training/compile/72e7fa11914ceeba9f866f42429211d1/codegen_accounts.jar
+19/03/10 22:10:36 WARN manager.MySQLManager: It looks like you are importing from mysql.
+19/03/10 22:10:36 WARN manager.MySQLManager: This transfer can be faster! Use the --direct
+19/03/10 22:10:36 WARN manager.MySQLManager: option to exercise a MySQL-specific fast path.
+19/03/10 22:10:36 INFO manager.MySQLManager: Setting zero DATETIME behavior to convertToNull (mysql)
+19/03/10 22:10:36 INFO mapreduce.ImportJobBase: Beginning import of accounts
+19/03/10 22:10:36 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+19/03/10 22:10:36 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+19/03/10 22:10:37 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `accounts` AS t LIMIT 1
+19/03/10 22:10:37 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `accounts` AS t LIMIT 1
+19/03/10 22:10:39 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+19/03/10 22:10:39 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+19/03/10 22:10:41 INFO db.DBInputFormat: Using read commited transaction isolation
+19/03/10 22:10:41 INFO db.DataDrivenDBInputFormat: BoundingValsQuery: SELECT MIN(`acct_num`), MAX(`acct_num`) FROM `accounts` WHERE ( state='CA' )
+19/03/10 22:10:41 INFO db.IntegerSplitter: Split size: 32439; Num splits: 4 from: 1 to: 129760
+19/03/10 22:10:41 INFO mapreduce.JobSubmitter: number of splits:4
+19/03/10 22:10:41 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1552277057261_0009
+19/03/10 22:10:42 INFO impl.YarnClientImpl: Submitted application application_1552277057261_0009
+19/03/10 22:10:42 INFO mapreduce.Job: The url to track the job: http://localhost:8088/proxy/application_1552277057261_0009/
+19/03/10 22:10:42 INFO mapreduce.Job: Running job: job_1552277057261_0009
+19/03/10 22:10:52 INFO mapreduce.Job: Job job_1552277057261_0009 running in uber mode : false
+19/03/10 22:10:52 INFO mapreduce.Job:  map 0% reduce 0%
+19/03/10 22:11:03 INFO mapreduce.Job:  map 25% reduce 0%
+19/03/10 22:11:12 INFO mapreduce.Job:  map 50% reduce 0%
+19/03/10 22:11:21 INFO mapreduce.Job:  map 75% reduce 0%
+19/03/10 22:11:30 INFO mapreduce.Job:  map 100% reduce 0%
+19/03/10 22:11:30 INFO mapreduce.Job: Job job_1552277057261_0009 completed successfully
+19/03/10 22:11:30 INFO mapreduce.Job: Counters: 30
 	File System Counters
 		FILE: Number of bytes read=0
-		FILE: Number of bytes written=142271
+		FILE: Number of bytes written=569020
 		FILE: Number of read operations=0
 		FILE: Number of large read operations=0
 		FILE: Number of write operations=0
-		HDFS: Number of bytes read=16346
-		HDFS: Number of bytes written=5563
-		HDFS: Number of read operations=68
+		HDFS: Number of bytes read=65386
+		HDFS: Number of bytes written=4212382
+		HDFS: Number of read operations=272
 		HDFS: Number of large read operations=0
-		HDFS: Number of write operations=8
+		HDFS: Number of write operations=40
 	Job Counters 
-		Launched map tasks=1
-		Other local map tasks=1
+		Launched map tasks=4
+		Other local map tasks=4
 		Total time spent by all maps in occupied slots (ms)=0
 		Total time spent by all reduces in occupied slots (ms)=0
-		Total time spent by all map tasks (ms)=6225
-		Total vcore-seconds taken by all map tasks=6225
-		Total megabyte-seconds taken by all map tasks=1593600
+		Total time spent by all map tasks (ms)=31944
+		Total vcore-seconds taken by all map tasks=31944
+		Total megabyte-seconds taken by all map tasks=8177664
 	Map-Reduce Framework
-		Map input records=0
-		Map output records=0
-		Input split bytes=117
+		Map input records=92416
+		Map output records=92416
+		Input split bytes=470
 		Spilled Records=0
 		Failed Shuffles=0
 		Merged Map outputs=0
-		GC time elapsed (ms)=145
-		CPU time spent (ms)=1650
-		Physical memory (bytes) snapshot=173477888
-		Virtual memory (bytes) snapshot=2070806528
-		Total committed heap usage (bytes)=62980096
+		GC time elapsed (ms)=828
+		CPU time spent (ms)=14440
+		Physical memory (bytes) snapshot=768376832
+		Virtual memory (bytes) snapshot=8296226816
+		Total committed heap usage (bytes)=251920384
 	File Input Format Counters 
 		Bytes Read=0
 	File Output Format Counters 
 		Bytes Written=0
-19/03/10 22:03:10 INFO mapreduce.ImportJobBase: Transferred 5.4326 KB in 20.9492 seconds (265.5473 bytes/sec)
-19/03/10 22:03:10 INFO mapreduce.ImportJobBase: Retrieved 0 records.
-
+19/03/10 22:11:30 INFO mapreduce.ImportJobBase: Transferred 4.0172 MB in 51.365 seconds (80.0867 KB/sec)
+19/03/10 22:11:30 INFO mapreduce.ImportJobBase: Retrieved 92416 records.
 
 ## 결과 확인
-sqoop eval \
---connect jdbc:mysql://localhost/loudacre \
---username training --password training \
---query "select "
+```
+parquet-tools head \
+hdfs://localhost/loudacre/accounts/CA
+```
+acct_num = 1
+acct_create_dt = 1224803105000
+first_name = Donald
+last_name = Becton
+address = 2275 Washburn Street
+city = Oakland
+state = CA
+zipcode = 94660
+phone_number = 5100032418
+created = 1395174587000
+modified = 1395174587000
+
+acct_num = 2
+acct_create_dt = 1226487601000
+first_name = Donna
+last_name = Jones
+address = 3885 Elliott Street
+city = San Francisco
+state = CA
+zipcode = 94171
+phone_number = 4150835799
+created = 1395174587000
+modified = 1395174587000
+
+acct_num = 3
+acct_create_dt = 1229879990000
+first_name = Dorthy
+last_name = Chalmers
+address = 4073 Whaley Lane
+city = San Mateo
+state = CA
+zipcode = 94479
+phone_number = 6506877757
+created = 1395174587000
+modified = 1395174587000
+
+acct_num = 4
+acct_create_dt = 1227859689000
+first_name = Leila
+last_name = Spencer
+address = 1447 Ross Street
+city = San Mateo
+state = CA
+zipcode = 94444
+phone_number = 6503198619
+created = 1395174587000
+modified = 1395174587000
+
+acct_num = 5
+acct_create_dt = 1226819166000
+first_name = Anita
+last_name = Laughlin
+address = 2767 Hill Street
+city = Richmond
+state = CA
+zipcode = 94872
+phone_number = 5107754354
+created = 1395174587000
+modified = 1395174587000
