@@ -35,20 +35,20 @@ sqoop eval \
 19/03/10 21:39:37 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
 19/03/10 21:39:38 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
 
-*| Field                | Type                 | Null | Key | Default              | Extra                |
+| Field                | Type                 | Null | Key | Default              | Extra                |
 
-*| acct_num             | int(11)              | NO  | PRI | (null)               |                      |
-*| acct_create_dt       | datetime             | NO  |     | (null)               |                      |
-*| acct_close_dt        | datetime             | YES |     | (null)               |                      |
-*| first_name           | varchar(255)         | NO  |     | (null)               |                      |
-*| last_name            | varchar(255)         | NO  |     | (null)               |                      |
-*| address              | varchar(255)         | NO  |     | (null)               |                      |
-*| city                 | varchar(255)         | NO  |     | (null)               |                      |
-*| state                | varchar(255)         | NO  |     | (null)               |                      |
-*| zipcode              | varchar(255)         | NO  |     | (null)               |                      |
-*| phone_number         | varchar(255)         | NO  |     | (null)               |                      |
-*| created              | datetime             | NO  |     | (null)               |                      |
-*| modified             | datetime             | NO  |     | (null)               |                      |
+| acct_num             | int(11)              | NO  | PRI | (null)               |                      |
+| acct_create_dt       | datetime             | NO  |     | (null)               |                      |
+| acct_close_dt        | datetime             | YES |     | (null)               |                      |
+| first_name           | varchar(255)         | NO  |     | (null)               |                      |
+| last_name            | varchar(255)         | NO  |     | (null)               |                      |
+| address              | varchar(255)         | NO  |     | (null)               |                      |
+| city                 | varchar(255)         | NO  |     | (null)               |                      |
+| state                | varchar(255)         | NO  |     | (null)               |                      |
+| zipcode              | varchar(255)         | NO  |     | (null)               |                      |
+| phone_number         | varchar(255)         | NO  |     | (null)               |                      |
+| created              | datetime             | NO  |     | (null)               |                      |
+| modified             | datetime             | NO  |     | (null)               |                      |
 
 ### import acct_num(PK), first_name, last_name, 텍스트파일로 구분자는 tab
 ```
@@ -245,12 +245,12 @@ sqoop eval \
 19/03/10 22:09:59 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
 19/03/10 22:09:59 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
 
-*| state                |
+| state                |
 
-*| AZ                   |
-*| CA                   |
-*| NV                   |
-*| OR                   |
+| AZ                   |
+| CA                   |
+| NV                   |
+| OR                   |
 
 
 ### import state=California인 경우, 단 parquet format, gzip compression
