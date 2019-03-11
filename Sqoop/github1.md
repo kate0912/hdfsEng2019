@@ -49,7 +49,6 @@ sqoop eval \
 | phone_number         | varchar(255)         | NO  |     | (null)               |                      | 
 | created              | datetime             | NO  |     | (null)               |                      | 
 | modified             | datetime             | NO  |     | (null)               |                      | 
----------------------------------------------------------------------------------------------------------
 
 ### import acct_num(PK), first_name, last_name, 텍스트파일로 구분자는 tab
 ```
@@ -245,14 +244,13 @@ sqoop eval \
 19/03/10 22:09:58 INFO sqoop.Sqoop: Running Sqoop version: 1.4.6-cdh5.7.0
 19/03/10 22:09:59 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
 19/03/10 22:09:59 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
-------------------------
+
 | state                | 
-------------------------
+
 | AZ                   | 
 | CA                   | 
 | NV                   | 
 | OR                   | 
-------------------------
 
 
 ### import state=California인 경우, 단 parquet format, gzip compression
