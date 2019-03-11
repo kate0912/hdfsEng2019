@@ -6,7 +6,7 @@ Hint: You will have to figure out what the name of the table columns are in orde
 this exercise.
 
 
-## accounts table 존재하는지 확인
+### accounts table 존재하는지 확인
 ```
 sqoop list-tables \
 --connect jdbc:mysql://localhost/loudacre \
@@ -24,7 +24,7 @@ knowledgebase
 mostactivestations
 webpage
 
-## 컬럼 명 확인 
+### 컬럼 명 확인 
 ```
 sqoop eval \
 --connect jdbc:mysql://localhost/loudacre \
@@ -51,7 +51,7 @@ sqoop eval \
 | modified             | datetime             | NO  |     | (null)               |                      | 
 ---------------------------------------------------------------------------------------------------------
 
-## import acct_num(PK), first_name, last_name, 텍스트파일로 구분자는 tab
+### import acct_num(PK), first_name, last_name, 텍스트파일로 구분자는 tab
 ```
 sqoop import \
 --connect jdbc:mysql://localhost/loudacre \
@@ -140,7 +140,7 @@ Note: Recompile with -Xlint:deprecation for details.
 /loudacre/accounts/user_compressed. Provide.a screenshot of HUE with the new directory
 created.
 
-## import 1번과 동일, 단 parquet format, snappy compression
+### import 1번과 동일, 단 parquet format, snappy compression
 ```
 sqoop import \
 --connect jdbc:mysql://localhost/loudacre \
@@ -234,7 +234,28 @@ Note: Recompile with -Xlint:deprecation for details.
 in parquet format and compressed using gzip. From the terminal, display some of the records
 that you just imported. Take a screenshot and save it as CA_only.
 
-## import state=California인 경우, 단 parquet format, gzip compression
+
+### 데이터 값 확인
+```
+sqoop eval \
+--connect jdbc:mysql://localhost/loudacre \
+--username training --password training \
+--query "select state from accounts group by state"
+```
+19/03/10 22:09:58 INFO sqoop.Sqoop: Running Sqoop version: 1.4.6-cdh5.7.0
+19/03/10 22:09:59 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+19/03/10 22:09:59 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+------------------------
+| state                | 
+------------------------
+| AZ                   | 
+| CA                   | 
+| NV                   | 
+| OR                   | 
+------------------------
+
+
+### import state=California인 경우, 단 parquet format, gzip compression
 ```
 sqoop import \
 --connect jdbc:mysql://localhost/loudacre \
@@ -321,7 +342,8 @@ Note: Recompile with -Xlint:deprecation for details.
 19/03/10 22:11:30 INFO mapreduce.ImportJobBase: Transferred 4.0172 MB in 51.365 seconds (80.0867 KB/sec)
 19/03/10 22:11:30 INFO mapreduce.ImportJobBase: Retrieved 92416 records.
 
-## 결과 확인
+
+### 결과 확인
 ```
 parquet-tools head \
 hdfs://localhost/loudacre/accounts/CA
