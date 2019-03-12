@@ -1,13 +1,9 @@
 # Flume 실습
 1. Create a new flume configuration file with the following:
 - Source
->> Type: Netcat
->> Bind: localhost
->> Port: 44444
+>> Type: Netcat, Bind: localhost, Port: 44444
 - Channel
->> Type: Memory
->> Capacity: 1000
->> transactionCapacity: 100
+>> Type: Memory, Capacity: 1000, transactionCapacity: 100
 - Sink
 >> Type: logger
 
