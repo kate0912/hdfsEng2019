@@ -1,4 +1,4 @@
-#Flafka 실습
+# Flafka 실습
 
 ### Flume Agent 실행할 conf-file 확인
 ```
