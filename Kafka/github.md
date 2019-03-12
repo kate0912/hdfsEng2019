@@ -56,10 +56,10 @@ test weblog entry 2
 
 
 ### 결과 화면
-> Producer cmd 결과창
+- Producer cmd 결과창
 
 ![screenshot_producer](./screenshot_p.PNG)
 
-> Consumer cmd 결과창
+- Consumer cmd 결과창
 
 ![screenshot_consumer](./screenshot_c.PNG)
