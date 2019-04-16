@@ -38,7 +38,7 @@ position 19 is the first use of the delimiter).
 > map(lambda line: line.split(line[19:20])): 구분자 위치가 모두 동일하게 19-20번째 위치여서 해당 문자열을 잘라와 그 문자로 split 수행
 - C. Filter out any records which do not parse correctly 
 (hint: each record should have exactly 14 values).
-> filter(lambda values: len(values) == 14): 각 레코드는 반드시 14개의 values로 구성되어 있어야해서 filter 수행
+> filter(lambda values: len(values) == 14): 각 레코드는 반드시 14개의 values로 구성되어 있어야해서 len()을 사용해 filter 수행
 - D. Extract the date (first field), model (second field), device ID 
 (third field), and latitude and longitude (13th and 14th fields respectively).
 - E. The second field contains the device manufacturer and model name (such as Ronin S2). 
