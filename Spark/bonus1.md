@@ -5,6 +5,24 @@ hdfs dfs -mkdir /loudacre/device
 hdfs dfs -put $DEVDATA/devicestatus.txt  /loudacre/device
 ```
 
+### 업로드한 데이터 확인
+```
+hdfs dfs -cat /loudacre/device/devicestatus.txt | head -10
+```
+- 결과값
+```
+2014-03-15:10:10:20,Sorrento F41L,8cc3b47e-bd01-4482-b500-28f2342679af,7,24,39,enabled,disabled,connected,55,67,12,33.6894754264,-117.543308253
+2014-03-15:10:10:20|MeeToo 1.0|ef8c7564-0a1a-4650-a655-c8bbd5f8f943|0|31|63|70|39|27|enabled|enabled|enabled|37.4321088904|-121.485029632
+2014-03-15:10:10:20|MeeToo 1.0|23eba027-b95a-4729-9a4b-a3cca51c5548|0|20|21|86|54|34|enabled|enabled|enabled|39.4378908349|-120.938978486
+2014-03-15:10:10:20,Sorrento F41L,707daba1-5640-4d60-a6d9-1d6fa0645be0,8,22,60,enabled,enabled,disabled,68,91,17,39.3635186767,-119.400334708
+2014-03-15:10:10:20,Ronin Novelty Note 1,db66fe81-aa55-43b4-9418-fc6e7a00f891,0,13,47,70,enabled,enabled,enabled,10,45,33.1913581092,-116.448242643
+2014-03-15:10:10:20,Sorrento F41L,ffa18088-69a0-433e-84b8-006b2b9cc1d0,3,10,36,enabled,connected,enabled,53,58,42,33.8343543748,-117.330000857
+2014-03-15:10:10:20,Sorrento F33L,66d678e6-9c87-48d2-a415-8d5035e54a23,1,34,74,enabled,disabled,enabled,57,42,15,37.3803954321,-121.840756755
+2014-03-15:10:10:20|MeeToo 4.1|673f7e4b-d52b-44fc-8826-aea460c3481a|1|16|77|61|24|50|enabled|disabled|enabled|34.1841062345|-117.9435329
+2014-03-15:10:10:20,Ronin Novelty Note 2,a678ccc3-b0d2-452d-bf89-85bd095e28ee,0,10,97,63,enabled,enabled,connected,48,4,32.2850556785,-111.819583734
+2014-03-15:10:10:20,Sorrento F41L,86bef6ae-2f1c-42ec-aa67-6acecd7b0675,9,27,35,enabled,enabled,enabled,62,41,19,45.2400522984,-122.377467861
+```
+
 ### ETL 수행 및 해당 경로에 결과 데이터 저장
 ```
 sc.textFile("/loudacre/device/devicestatus.txt") \
