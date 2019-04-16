@@ -26,7 +26,6 @@ hdfs dfs -cat /loudacre/device/devicestatus.txt | head -10
 ### ETL 수행 및 해당 경로에 결과 데이터 저장
 ```
 sc.textFile("/loudacre/device/devicestatus.txt") \
-.filter(lambda line: len(line) > 20) \
 .map(lambda line: line.split(line[19:20])) \
 .filter(lambda values: len(values) == 14) \
 .map(lambda values: (values[0], values[1].split(' ')[0], values[2], values[12], values[13])) \
