@@ -4,7 +4,7 @@
 hdfs dfs -mkdir /loudacre/device
 hdfs dfs -put $DEVDATA/devicestatus.txt  /loudacre/device
 ```
-
+- A. Upload the devicestatus.txt file to HDFS.
 ### 업로드한 데이터 확인
 ```
 hdfs dfs -cat /loudacre/device/devicestatus.txt | head -10
@@ -32,7 +32,6 @@ sc.textFile("/loudacre/device/devicestatus.txt") \
 .map(lambda values: ','.join(values)) \
 .saveAsTextFile("/loudacre/devicestatus_etl")
 ```
-- A. Upload the devicestatus.txt file to HDFS.
 - B. Determine which delimiter to use (hint: the character at
 position 19 is the first use of the delimiter).
 > map(lambda line: line.split(line[19:20])): 구분자 위치가 모두 동일하게 19-20번째 위치여서 해당 문자열을 잘라와 그 문자로 split 수행
@@ -50,12 +49,13 @@ Keep just the manufacturer name.
 - F. Save the extracted data to comma-delimited text files in the
 /loudacre/devicestatus_etl directory on HDFS.
 > join을 통해서 , 로 구분되도록 설정하고 saveAsTextFile을 통해서 해당 HDFS 위치(/loudacre/devicestatus_etl)에 결과 값 저장함
-- G. Confirm that the data in the file(s) was saved correctly.
+
 
 ### 저장된 데이터 확인
 ```
 hdfs dfs -cat /loudacre/devicestatus_etl/part-00000 | head -10
 ```
+- G. Confirm that the data in the file(s) was saved correctly.
 - 결과값
 ```
 2014-03-15:10:10:20,Sorrento,8cc3b47e-bd01-4482-b500-28f2342679af,33.6894754264,-117.543308253
