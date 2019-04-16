@@ -5,7 +5,8 @@ hdfs dfs -mkdir /loudacre/device
 hdfs dfs -put $DEVDATA/devicestatus.txt  /loudacre/device
 ```
 
-2.
+### ETL 수행 및 해당 경로에 결과 데이터 저장
+```
 sc.textFile("/loudacre/device/devicestatus.txt") \
 .filter(lambda line: len(line) > 20) \
 .map(lambda line: line.split(line[19:20])) \
@@ -13,14 +14,23 @@ sc.textFile("/loudacre/device/devicestatus.txt") \
 .map(lambda values: (values[0], values[1].split(' ')[0], values[2], values[12], values[13])) \
 .map(lambda values: ','.join(values)) \
 .saveAsTextFile("/loudacre/devicestatus_etl")
-
 ```
-hdfs dfs -ls /loudacre/devicestatus_etl
-```
-Found 2 items
--rw-rw-rw-   1 training supergroup          0 2019-04-15 21:39 /loudacre/devicestatus_etl/_SUCCESS
--rw-rw-rw-   1 training supergroup    9234106 2019-04-15 21:39 /loudacre/devicestatus_etl/part-00000
+A. Upload the devicestatus.txt file to HDFS.
+B. Determine which delimiter to use (hint: the character at
+position 19 is the first use of the delimiter).
+C. Filter out any records which do not parse correctly 
+(hint: each record should have exactly 14 values).
+D. Extract the date (first field), model (second field), device ID 
+(third field), and latitude and longitude (13th and 14th fields respectively).
+E. The second field contains the device manufacturer and model name (such as Ronin S2). 
+Split this field by spaces to separate
+the manufacturer from the model (for example, manufacturer Ronin, model S2). 
+Keep just the manufacturer name.
+F. Save the extracted data to comma-delimited text files in the
+/loudacre/devicestatus_etl directory on HDFS.
+G. Confirm that the data in the file(s) was saved correctly.
 
+### 저장된 데이터 확인
 ```
 hdfs dfs -cat /loudacre/devicestatus_etl/part-00000 | head -10
 ```
