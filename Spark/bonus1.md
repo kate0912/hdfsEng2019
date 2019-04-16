@@ -35,21 +35,21 @@ sc.textFile("/loudacre/device/devicestatus.txt") \
 - A. Upload the devicestatus.txt file to HDFS.
 - B. Determine which delimiter to use (hint: the character at
 position 19 is the first use of the delimiter).
-=> map(lambda line: line.split(line[19:20])): 구분자 위치가 모두 동일하게 19-20번째 위치여서 해당 문자열을 잘라와서 split 수행
+> map(lambda line: line.split(line[19:20])): 구분자 위치가 모두 동일하게 19-20번째 위치여서 해당 문자열을 잘라와서 split 수행
 - C. Filter out any records which do not parse correctly 
 (hint: each record should have exactly 14 values).
-=> filter(lambda values: len(values) == 14): 각 레코드는 반드시 14개의 values로 구성되어 있어야해서 filter 수행
+> filter(lambda values: len(values) == 14): 각 레코드는 반드시 14개의 values로 구성되어 있어야해서 filter 수행
 - D. Extract the date (first field), model (second field), device ID 
 (third field), and latitude and longitude (13th and 14th fields respectively).
 - E. The second field contains the device manufacturer and model name (such as Ronin S2). 
 Split this field by spaces to separate
 the manufacturer from the model (for example, manufacturer Ronin, model S2). 
 Keep just the manufacturer name.
-=> map(lambda values: (values[0], values[1].split(' ')[0], values[2], values[12], values[13])): 각각의 레코드마다 해당 values의 index값으로
+> map(lambda values: (values[0], values[1].split(' ')[0], values[2], values[12], values[13])): 각각의 레코드마다 해당 values의 index값으로
 가져옴, 단 manufacturer name의 경우 name과 model이 한 value값에 들어있어 다시 스페이스로 split해 첫번째 요소를 가져옴
 - F. Save the extracted data to comma-delimited text files in the
 /loudacre/devicestatus_etl directory on HDFS.
-=> join을 통해서 , 로 구분되도록 설정하고 saveAsTextFile을 통해서 해당 HDFS 위치(/loudacre/devicestatus_etl)에 결과 값 저장함
+> join을 통해서 , 로 구분되도록 설정하고 saveAsTextFile을 통해서 해당 HDFS 위치(/loudacre/devicestatus_etl)에 결과 값 저장함
 - G. Confirm that the data in the file(s) was saved correctly.
 
 ### 저장된 데이터 확인
