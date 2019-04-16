@@ -35,7 +35,7 @@ sc.textFile("/loudacre/device/devicestatus.txt") \
 - A. Upload the devicestatus.txt file to HDFS.
 - B. Determine which delimiter to use (hint: the character at
 position 19 is the first use of the delimiter).
-> map(lambda line: line.split(line[19:20])): 구분자 위치가 모두 동일하게 19-20번째 위치여서 해당 문자열을 잘라와서 split 수행
+> map(lambda line: line.split(line[19:20])): 구분자 위치가 모두 동일하게 19-20번째 위치여서 해당 문자열을 잘라와 그 문자로 split 수행
 - C. Filter out any records which do not parse correctly 
 (hint: each record should have exactly 14 values).
 > filter(lambda values: len(values) == 14): 각 레코드는 반드시 14개의 values로 구성되어 있어야해서 filter 수행
